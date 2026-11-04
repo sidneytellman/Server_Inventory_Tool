@@ -1,34 +1,34 @@
 [
   {
-    "namn": "web01",
-    "adress": "example.com",
-    "miljo": "prod",
-    "roll": "webbserver",
+    "name": "web01",
+    "address": "example.com",
+    "environment": "prod",
+    "role": "webserver",
     "status": "unknown",
-    "senast_kontrollerad": ""
+    "last_checked": ""
   },
   {
-    "namn": "db01",
-    "adress": "127.0.0.1",
-    "miljo": "prod",
-    "roll": "databas",
+    "name": "db01",
+    "address": "127.0.0.1",
+    "environment": "prod",
+    "role": "database",
     "status": "unknown",
-    "senast_kontrollerad": ""
+    "last_checked": ""
   },
   {
-    "namn": "test01",
-    "adress": "192.0.2.10",
-    "miljo": "test",
-    "roll": "testserver",
+    "name": "test01",
+    "address": "192.0.2.10",
+    "environment": "test",
+    "role": "testserver",
     "status": "unknown",
-    "senast_kontrollerad": ""
+    "last_checked": ""
   },
   {
-    "namn": "dev01",
-    "adress": "localhost",
-    "miljo": "dev",
-    "roll": "utvecklingsserver",
+    "name": "dev01",
+    "address": "localhost",
+    "environment": "dev",
+    "role": "developmentserver",
     "status": "unknown",
-    "senast_kontrollerad": ""
+    "last_checked": ""
   }
 ]
