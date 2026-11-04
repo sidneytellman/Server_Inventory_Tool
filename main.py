@@ -1,0 +1,1 @@
+"""reads arguments with argparse and chooses between menu and CLI"""

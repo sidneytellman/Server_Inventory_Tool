@@ -1,0 +1,1 @@
+"""Shows the user a menu of options to choose from, reads the user input and calls the appropriate function"""

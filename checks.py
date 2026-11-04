@@ -1,0 +1,1 @@
+"""Checks whether servers are responding"""
