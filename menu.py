@@ -62,24 +62,39 @@ def menu_remove_server(servers, data_file):
     """Asks for a server name and removes it, extra confirmation required for prod servers."""
 
     name = input("Enter the name of the server to remove: ").strip()
-    server = server_logic.find_server(servers, name)
-
-    if server is None:
-        print(f"Server with name '{name}' not found.")
+    try:
+        server = server_logic.get_server(servers, name)
+    except ValueError as error:
+        print(error)
         return
 
+    
     if server["environment"] == "prod":
         confirmation = input(f"Are you sure you want to remove the prod server '{name}'? Type 'yes' to confirm: ").strip().lower()
         if confirmation != "yes":
             print("Removal cancelled.")
             return
-        
+
+    server_logic.remove_server(servers, name)
+    storage.save_servers(servers, data_file)
+    print(f"Server '{name}' removed successfully.")    
+
+
+def menu_check_server(servers, data_file):
+    """Asks for a server name, checks status and saves the result."""
+
+    name = input("Enter the name of the server to check: ").strip()
     try:
-        removed_server = server_logic.remove_server(servers, name)
-        storage.save_servers(servers, data_file)
-        print(f"Server '{removed_server['name']}' removed successfully.")
+        server = server_logic.get_server(servers, name)
     except ValueError as error:
         print(error)
+        return
+
+    checks.check_server(server)
+    storage.save_servers(servers, data_file)
+    print(f"Server '{server['name']}' status: {server['status']}, last checked: {server['last_checked']}")
+
+
 
 def run_menu(): 
     """Runs the menu, reading user input, calling appropriate functions until user choose to exit"""

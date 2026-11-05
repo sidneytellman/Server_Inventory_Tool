@@ -18,6 +18,15 @@ def find_server(servers, name):
     return None
 
 
+def get_server(servers, name):
+    """Returns the server with the given name, raises ValueError if not found"""
+    server = find_server(servers, name)
+    if server is None:
+        raise ValueError(f"Server with name '{name}' not found.")
+    return server
+
+
+
 def filter_servers_by_environment(servers, environment):
     """Filters servers by the given environment. Returns a list of servers in that environment."""
     validate_environment(environment)
