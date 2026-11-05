@@ -54,3 +54,16 @@ def remove_server(servers, name):
         raise ValueError(f"Server with name '{name}' not found.")
     servers.remove(server)
     return server 
+
+
+def print_servers(servers):
+    """Prints the servers as a table that is aligned"""
+    if not servers:
+        print("No servers to display.")
+        return
+
+    print(f"{'Name':<20} {'Address':<15} {'Environment':<12} {'Role':<15} {'Status':<10} {'Last Checked':<20}")
+    print("-" * 97)
+    for server in servers:
+        print(f"{server['name']:<20} {server['address']:<15} {server['environment']:<12} {server['role']:<15} {server['status']:<10} {server['last_checked']:<20}")
+    
