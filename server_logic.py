@@ -45,3 +45,12 @@ def add_server(servers, name, address, environment, role):
     }
     servers.append(new_server)
     return new_server
+
+
+def remove_server(servers, name):
+    """Removes a server by name. Raises ValueError if the server is not found."""
+    server = find_server(servers, name)
+    if server is None:
+        raise ValueError(f"Server with name '{name}' not found.")
+    servers.remove(server)
+    return server 
