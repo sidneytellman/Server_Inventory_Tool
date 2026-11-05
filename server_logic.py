@@ -62,8 +62,7 @@ def print_servers(servers):
         print("No servers to display.")
         return
 
-    print(f"{'Name':<20} {'Address':<15} {'Environment':<12} {'Role':<15} {'Status':<10} {'Last Checked':<20}")
-    print("-" * 97)
+    print(f"{'Name':<20} {'Address':<20} {'Environment':<12} {'Role':<20} {'Status':<10} {'Last Checked':<20}")
+    print("-" * 108)
     for server in servers:
-        print(f"{server['name']:<20} {server['address']:<15} {server['environment']:<12} {server['role']:<15} {server['status']:<10} {server['last_checked']:<20}")
-    
+        print(f"{server['name']:<20} {server['address']:<20} {server['environment']:<12} {server['role']:<20} {server['status']:<10} {server['last_checked']:<20}")

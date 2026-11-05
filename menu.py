@@ -39,6 +39,28 @@ def menu_list_by_environment(servers):
     else:
         print(f"No servers found in the '{environment}' environment.")
 
+
+def menu_add_server(servers, data_file):
+    """Asks for server details and adds a new server."""
+
+    name = input("Enter server name: ").strip()
+    address = input("Enter server address: ").strip()
+    environment = ask_for_environment()
+    role = input("Enter the server role: ").strip()
+
+    try:
+        new_server = server_logic.add_server(servers, name, address, environment, role)
+    except ValueError as error:
+        print(error)
+        return
+
+    storage.save_servers(servers, data_file)
+    print(f"Server '{new_server['name']}' added successfully.")
+
+
+
+
+
 def run_menu(): 
     """Runs the menu, reading user input, calling appropriate functions until user choose to exit"""
     data_file = storage.get_data_file()
