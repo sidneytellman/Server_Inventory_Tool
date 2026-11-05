@@ -38,7 +38,28 @@ def main():
         server_logic.print_servers(servers_to_show)
         sys.exit(0)
 
-    
+    elif args.check:
+        try:
+            server = server_logic.get_server(servers, args.check)
+        except ValueError as error:
+            print(error)
+            sys.exit(1)
+        is_up = checks.check_server(server)
+        storage.save_servers(servers, data_file)
+        print(f"Server '{server['name']}' status: {server['status']}, last checked: {server['last_checked']}")
+        sys.exit(0 if is_up else 1)
+
+    elif args.check_all:
+        all_up = checks.check_all_servers(servers)
+        storage.save_servers(servers, data_file)
+        server_logic.print_servers(servers)
+        sys.exit(0 if all_up else 1)
+
+    elif args.export:
+        file_path = storage.export_csv(servers)
+        print(f"Servers exported to CSV file: {file_path}")
+        sys.exit(0)
+        
 
 if __name__ == "__main__":
     main()
