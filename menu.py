@@ -95,6 +95,24 @@ def menu_check_server(servers, data_file):
     print(f"Server '{server['name']}' status: {server['status']}, last checked: {server['last_checked']}")
 
 
+def menu_check_all_servers(servers, data_file):
+    """Checks all servers, saves results and prints the table"""
+
+    print("Checking servers, please wait...")
+    all_up = checks.check_all_servers(servers)
+    storage.save_servers(servers, data_file)
+    server_logic.print_servers(servers)
+    if all_up:
+        print("All servers are up.")
+    else:
+        print("Some servers are down.")
+
+
+def menu_export_csv(servers):
+    """Exports the servers to a CSV file and prints the file path"""
+
+    file_path = storage.export_csv(servers)
+    print(f"Servers exported to CSV file: {file_path}")        
 
 def run_menu(): 
     """Runs the menu, reading user input, calling appropriate functions until user choose to exit"""
