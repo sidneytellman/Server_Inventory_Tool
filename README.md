@@ -192,7 +192,6 @@ Server_Inventory_Tool/
 ├── server.json        # The server data
 ├── README.md          # This file
 ├── REDOGORELSE.md     # Written explanation of the code
-├── REFLEKTION.md      # Reflection on design choices
 └── .gitignore         # Keeps __pycache__/ and reports/ out of Git
 ```
 
