@@ -59,7 +59,7 @@ The menu is shown again after every choice, until you choose `0`.
 | 7 | Export a report as CSV |
 | 0 | Exit |
 
-Behaviour worth knowing:
+Things worth knowing:
 
 - **Invalid input** never crashes the program. An unknown menu choice, an unknown server
   name or an invalid environment gives a clear message. When adding a server, you are
